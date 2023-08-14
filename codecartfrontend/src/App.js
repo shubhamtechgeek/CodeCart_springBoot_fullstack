@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Navigation from './customer/components/navigation/navigation';
+import HomePage from './customer/Pages/homePage/homePage';
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <div className="">
       <Navigation/>
       <div>
-        Home
+        <HomePage/>
       </div>
     </div>
   );
