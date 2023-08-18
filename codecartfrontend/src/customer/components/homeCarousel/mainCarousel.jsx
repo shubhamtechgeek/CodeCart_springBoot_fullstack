@@ -1,11 +1,11 @@
 import React from 'react'
-import { MainCarouselData } from './mainCarouselData';
+import { MainCarouselData } from './MainCarouselData';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 
 const MainCarousel = () => {
-    const items = MainCarouselData.map((item) => <img className='cursor-pointer' role='presentation' src={item.image} alt=""/>)
+    const items = MainCarouselData.map((item) => <img className='cursor-pointer mx-auto' role='presentation' src={item.image} alt=""/>)
 
     return(
         <AliceCarousel 
