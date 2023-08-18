@@ -20,7 +20,7 @@ const HomeSectionCarousel = () => {
   
 
   const items = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => <HomeSectionCard />);
-
+  //change
   return (
     <div className="relative px-4 lg:p-8 border  border-black">
       <div className="relative p-5 ">
