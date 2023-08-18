@@ -5,12 +5,17 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-
 import javax.crypto.SecretKey;
 import java.util.Date;
 
 @Service
-public class JwtProvider {
+public class JwtProvider{
+
+//    private final JwtConstant jwtConstant;
+//    public JwtProvider(JwtConstant jwtConstant){
+//        this.jwtConstant = jwtConstant;
+//    }
+
     SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
     public String generateToken(Authentication auth){
 

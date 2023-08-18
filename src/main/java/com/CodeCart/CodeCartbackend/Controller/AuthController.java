@@ -26,15 +26,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    @Autowired
+    private final JwtProvider jwtProvider;
+
+    private final PasswordEncoder passwordEncoder;
 
 
-    private JwtProvider jwtProvider;
-
-    private PasswordEncoder passwordEncoder;
-
-
-    private CustomUserServiceImpl customUserService;
+    private final CustomUserServiceImpl customUserService;
 
     public AuthController(UserRepository userRepository, JwtProvider jwtProvider, PasswordEncoder passwordEncoder, CustomUserServiceImpl customUserService) {
         this.userRepository = userRepository;
@@ -102,8 +102,4 @@ public class AuthController {
 
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
-
-
-
-
 }
