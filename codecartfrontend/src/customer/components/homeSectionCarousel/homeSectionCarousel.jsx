@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { products1 } from "../../../data/products1";
 
-const HomeSectionCarousel = () => {
+const HomeSectionCarousel = ({sectionName}) => {
   const [activeIndex, setActiveIndex]=useState(0);
   const responsive = {
     0: { items: 1 },
@@ -23,8 +23,9 @@ const HomeSectionCarousel = () => {
   const items = products1.slice(0, 10).map((item) => <HomeSectionCard product={item}/>);
   //change
   return (
-    <div className="relative px-3 sm:p-10 border border-black">
-      <div className="relative p-10 ">
+    <div className="relative px-3 lg:p-10 border">  
+      <h2 className="text-2xl font-extrabold test-gray-800 py-5">{sectionName}</h2>
+      <div className="relative p-5 ">
         <AliceCarousel
           items={items}
           responsive={responsive}
@@ -41,7 +42,7 @@ const HomeSectionCarousel = () => {
           onClick={slideNext}
           sx={{
             position: "absolute",
-            top: "6rem",
+            top: "6.5rem",
             right: "0rem",
             transform: "translateX(50%) rotate(90deg)",
             bgcolor: "white",
@@ -52,13 +53,13 @@ const HomeSectionCarousel = () => {
             sx={{ transform: "rotate(90deg)", color: "black" }} />
         </Button>}
         
-        <Button
+        {activeIndex !== 0 && <Button
           variant="contained"
           className="z-50 bg-white"
           onClick={slidePrev}
           sx={{
             position: "absolute",
-            bottom: "6rem",
+            bottom: "6.5rem",
             left: "0rem",
             transform: "translateX(-50%) rotate(-90deg)",
             bgcolor: "white",
@@ -67,7 +68,7 @@ const HomeSectionCarousel = () => {
         >
             <KeyboardArrowLeftIcon
               sx={{ transform: "rotate(90deg)", color: "black" }} />
-          </Button>
+          </Button>}
       </div>
     </div>
   );
