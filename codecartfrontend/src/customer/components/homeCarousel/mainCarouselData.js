@@ -1,20 +1,24 @@
 export const MainCarouselData = [
 {
-    image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/0/10_5.jpg",
-    path:"/women/clothing/lengha_choli"
+    image:"https://www.mannerless.in/cdn/shop/files/1_1_deca0710-b7aa-40b8-9546-cc3366898b69.png?v=1687176912&width=360"
+    // ,
+    // path:"/women/clothing/lengha_choli"
 },
 {
-    image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/2/12_4.jpg",
-    path:"/women/clothing/women_dress"
+    image:"https://www.mannerless.in/cdn/shop/files/SHOPFYY_7.png?v=1687518690&width=360"
+    // ,
+    // path:"/women/clothing/women_dress"
 },
     
 {
-    image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/9/_/9_8.jpg",
-    path:"/women/clothing/women_dress"
+    image:"https://www.mannerless.in/cdn/shop/files/SHOPFYY_8.png?v=1687518551&width=360"
+    // ,
+    // path:"/women/clothing/women_dress"
 },
 {
-    image:"https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/1/11_4.jpg",
-    path:"/women/clothing/women_saree"
+    image:"https://www.mannerless.in/cdn/shop/files/F1_1.png?v=1687884837&width=360"
+    // ,
+    // path:"/women/clothing/women_saree"
 }
     
 ];
