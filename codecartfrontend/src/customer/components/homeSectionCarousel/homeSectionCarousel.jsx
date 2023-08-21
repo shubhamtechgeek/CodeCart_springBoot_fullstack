@@ -3,13 +3,14 @@ import AliceCarousel from "react-alice-carousel";
 import HomeSectionCard from "../homeSectionCard/homeSectionCard";
 import { Button } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import { products1 } from "../../../data/products1";
 
 const HomeSectionCarousel = () => {
   const [activeIndex, setActiveIndex]=useState(0);
   const responsive = {
     0: { items: 1 },
-    720: { items: 3 },
-    1024: { items: 5.5 },
+    720: { items: 2.5 },
+    1024: { items: 3.5 },
   };
 
   const slidePrev = () => setActiveIndex(activeIndex-1);
@@ -19,17 +20,17 @@ const HomeSectionCarousel = () => {
 
   
 
-  const items = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => <HomeSectionCard />);
+  const items = products1.slice(0, 10).map((item) => <HomeSectionCard product={item}/>);
   //change
   return (
-    <div className="relative px-4 lg:p-8 border  border-black">
-      <div className="relative p-5 ">
+    <div className="relative px-3 sm:p-10 border border-black">
+      <div className="relative p-10 ">
         <AliceCarousel
           items={items}
           responsive={responsive}
           disableButtonsControls
           disableDotsControls
-          infinite
+        
           onSlideChanged={syncActiveIndex}
           activeIndex={activeIndex}
           
