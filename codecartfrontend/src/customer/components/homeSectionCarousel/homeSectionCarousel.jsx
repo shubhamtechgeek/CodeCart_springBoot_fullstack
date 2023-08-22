@@ -10,7 +10,7 @@ const HomeSectionCarousel = ({sectionName}) => {
   const responsive = {
     0: { items: 1 },
     720: { items: 2.5 },
-    1024: { items: 3.5 },
+    1024: { items: 5 },
   };
 
   const slidePrev = () => setActiveIndex(activeIndex-1);
@@ -23,9 +23,9 @@ const HomeSectionCarousel = ({sectionName}) => {
   const items = products1.slice(0, 10).map((item) => <HomeSectionCard product={item}/>);
   //change
   return (
-    <div className="relative px-3 lg:p-10 border">  
-      <h2 className="text-2xl font-extrabold test-gray-800 py-5">{sectionName}</h2>
-      <div className="relative p-5 ">
+    <div className="relative lg:p-10 border">  
+      <h2 className="text-2xl font-extrabold test-gray-800 py-1">{sectionName}</h2>
+      <div className="relative p-1 ">
         <AliceCarousel
           items={items}
           responsive={responsive}
