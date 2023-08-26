@@ -18,11 +18,27 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
-  
-  const [anchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const openUserMenu = Boolean(anchorEl);
+  const jwt = localStorage.getItem("jwt");
 
+  const handleUserClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleCloseUserMenu = (event) => {
+    setAnchorEl(null);
+  };
 
+  const handleOpen = () => {
+    setOpenAuthModal(true);
+  };
+  const handleClose = () => {
+    setOpenAuthModal(false);
+   
+  };
+
+  
 
   const handleCategoryClick = (category, section, item, close) => {
     //navigate(`/${category.id}/${section.id}/${item.id}`);
@@ -363,7 +379,7 @@ export default function Navigation() {
                     <div>
                       <Avatar
                         className="text-white"
-                      
+                        onClick={handleUserClick}
                         aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
@@ -374,14 +390,14 @@ export default function Navigation() {
                           cursor: "pointer",
                         }}
                       >
-                        true
+                        SG
                       </Avatar>
                       
                       <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}
                         open={openUserMenu}
-                      
+                        onClick={handleCloseUserMenu}
                         MenuListProps={{
                           "aria-labelledby": "basic-button",
                         }}
@@ -398,7 +414,7 @@ export default function Navigation() {
                     </div>
                   ) : (
                     <Button
-                      
+                      onClick={handleOpen}
                       className="text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       Signin
@@ -438,7 +454,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      
+
     </div>
   );
 }
