@@ -2,10 +2,12 @@ package com.CodeCart.CodeCartbackend.Controller;
 
 import com.CodeCart.CodeCartbackend.Config.JwtProvider;
 import com.CodeCart.CodeCartbackend.Exceptions.UserException;
+import com.CodeCart.CodeCartbackend.Model.Cart;
 import com.CodeCart.CodeCartbackend.Model.User;
 import com.CodeCart.CodeCartbackend.Repository.UserRepository;
 import com.CodeCart.CodeCartbackend.Request.LoginRequest;
 import com.CodeCart.CodeCartbackend.Response.AuthResponse;
+import com.CodeCart.CodeCartbackend.Service.CartService;
 import com.CodeCart.CodeCartbackend.Service.CustomUserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,14 +35,17 @@ public class AuthController {
 
     private final PasswordEncoder passwordEncoder;
 
+    private final CartService cartService;
+
 
     private final CustomUserServiceImpl customUserService;
 
-    public AuthController(UserRepository userRepository, JwtProvider jwtProvider, PasswordEncoder passwordEncoder, CustomUserServiceImpl customUserService) {
+    public AuthController(UserRepository userRepository, JwtProvider jwtProvider, PasswordEncoder passwordEncoder, CustomUserServiceImpl customUserService, CartService cartService) {
         this.userRepository = userRepository;
         this.jwtProvider = jwtProvider;
         this.passwordEncoder = passwordEncoder;
         this.customUserService = customUserService;
+        this.cartService = cartService;
     }
 
 
@@ -62,6 +67,7 @@ public class AuthController {
         createdUser.setLastName(user.getLastName());
 
         User savedUser = userRepository.save(createdUser);
+        Cart cart = cartService.createCart(savedUser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(savedUser.getEmail(),savedUser.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);

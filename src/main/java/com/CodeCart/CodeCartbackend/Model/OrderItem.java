@@ -33,7 +33,7 @@ public class OrderItem {
 
     private Integer price;
 
-    private Integer discounterPrice;
+    private Integer discountedPrice;
 
     private Long userId;
 

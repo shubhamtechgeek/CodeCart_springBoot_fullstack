@@ -48,6 +48,7 @@ public class CartItemServiceImpl implements CartItemService{
         return cartItemRepository.save(item);
     }
 
+
     private CartItem findCartItemById(Long cartItemId) throws CartItemException {
         Optional<CartItem> opt = cartItemRepository.findById(cartItemId);
 
@@ -65,13 +66,13 @@ public class CartItemServiceImpl implements CartItemService{
     @Override
     public void removeCartItem(Long userId, Long cartItemId) throws CartItemException, UserException {
 
-        CartItem cartItem = findCartItemById(userId);
+        CartItem cartItem = findCartItemById(cartItemId);
 
         User user = userService.findUserById(cartItem.getUserId());
         User reqUser = userService.findUserById(userId);
 
         if (user.getId().equals(reqUser.getId())){
-            cartItemRepository.deleteById(cartItemId);
+            cartItemRepository.deleteById(cartItem.getId());
         }
         else {
             throw new UserException("can't remove other user's items");
